@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { BikeComponent } from './bike/bike.component';
-import { BikeService } from './bike.service';
 import { BikeInfoComponent } from './bike-info/bike-info.component';
 
 
@@ -20,7 +19,7 @@ import { BikeInfoComponent } from './bike-info/bike-info.component';
     FormsModule,
     HttpModule
   ],
-  providers: [BikeService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
