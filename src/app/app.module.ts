@@ -4,22 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { BikeComponent } from './bike/bike.component';
 import { BikeInfoComponent } from './bike-info/bike-info.component';
+import { BikesComponent } from './bikes/bikes.component';
+import { BikeService } from './bike.service';
+
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    BikeComponent,
     BikeInfoComponent,
+    BikesComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [BikeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

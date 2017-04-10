@@ -1,5 +1,10 @@
+import 'rxjs/add/operator/switchMap'
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+
 import { Bike } from '../bike';
+import { BikeService } from '../bike.service'
+
 
 @Component({
   selector: 'app-bike-info',
@@ -8,11 +13,16 @@ import { Bike } from '../bike';
 })
 export class BikeInfoComponent implements OnInit {
 
-  @Input() bike: Bike;
+  bike: Bike;
 
-  constructor() { }
+  constructor(
+    private bikeService: BikeService,
+    private route: ActivatedRoute
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.route.params.switchMap((params: Params) => this.bikeService.getBike(+params['id']))
+      .subscribe(bike => this.bike = bike);
   }
 
 }

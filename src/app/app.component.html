@@ -1,8 +1,5 @@
 <h1>{{title}}</h1>
-<h2>Bikes</h2>
-<ul>
-  <li *ngFor="let bike of bikes" (click)="onSelect(bike)">
-    {{bike.model}}
-  </li>
-</ul>
-<app-bike-info [bike]="selectedBike"></app-bike-info>
+<nav>
+  <a routerLink="/bikes" routerLinkActive="active">Bikes</a>
+</nav>
+<router-outlet></router-outlet>
