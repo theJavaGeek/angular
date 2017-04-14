@@ -1,7 +1,9 @@
-<h1>{{title}}</h1>
 <h2>Bikes</h2>
 <ul>
   <li *ngFor="let bike of bikes" (click)="showInfo(bike)">
     {{bike.model}}
   </li>
 </ul>
+<md-list>
+  <md-list-item *ngFor="let bike of bikes" (click)="showInfo(bike)">{{bike.model}}</md-list-item>
+</md-list>
