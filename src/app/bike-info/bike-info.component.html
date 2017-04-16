@@ -1,11 +1,17 @@
 <div *ngIf="bike">
-  <h2>{{bike.model}} details!</h2>
-  <div><label>id: </label>{{bike.id}}</div>
+  <md-card style="width: 30%">
+    <md-card-header>
+      <md-card-title>{{bike.model}} details!</md-card-title>
+    </md-card-header>
+    <md-card-content>
+      <div><label>id: </label>{{bike.id}}</div>
+      <div>
+        <label>model: </label>
+        <input [(ngModel)]="bike.model" placeholder="model" />
+      </div>
+      <div>
+        <label>Manufacturer: </label> {{bike.manufacturer}}
+      </div>
+    </md-card-content>
+  </md-card>
   <div>
-    <label>model: </label>
-    <input [(ngModel)]="bike.model" placeholder="model" />
-  </div>
-  <div>
-    <label>Manufacturer: </label> {{bike.manufacturer}}
-  </div>
-</div>

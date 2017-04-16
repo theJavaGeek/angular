@@ -8,24 +8,28 @@ import { BikeInfoComponent } from './bike-info/bike-info.component';
 import { BikesComponent } from './bikes/bikes.component';
 import { BikeService } from './bike.service';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { BikesDatabaseService } from './bikes-database.service';
+
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MaterialModule, MdList, MdListItem } from '@angular/material'
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    BikeInfoComponent,
-    BikesComponent,
-  ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
-    MaterialModule.forRoot()
+    InMemoryWebApiModule.forRoot(BikesDatabaseService),
+    MaterialModule.forRoot(),
+    AppRoutingModule
   ],
+  declarations: [
+    AppComponent,
+    BikesComponent,
+    BikeInfoComponent,
+  ],
+  bootstrap: [AppComponent],
   providers: [BikeService],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }
