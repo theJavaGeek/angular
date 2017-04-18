@@ -10,8 +10,13 @@
         <input [(ngModel)]="bike.model" placeholder="model" />
       </div>
       <div>
-        <label>Manufacturer: </label> {{bike.manufacturer}}
+        <label>Manufacturer: </label>
+        <input [(ngModel)]="bike.manufacturer" placeholder="manufacturer" />
       </div>
     </md-card-content>
+    <md-card-actions>
+      <button md-button (click)="goBack()"> Back </button>
+      <button md-button (click)="updateBike()"> Update </button>
+    </md-card-actions>
   </md-card>
   <div>

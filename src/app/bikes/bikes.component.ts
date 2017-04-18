@@ -12,6 +12,7 @@ export class BikesComponent implements OnInit {
 
   bikes: Bike[];
   selectedBike: Bike;
+  newBike: Bike;
 
   constructor(private router: Router, private bikeService: BikeService) {
 
@@ -19,6 +20,25 @@ export class BikesComponent implements OnInit {
 
   ngOnInit() {
     this.bikeService.getBikes().then(bikes => this.bikes = bikes);
+    this.newBike = new Bike();
+  }
+
+  createBike(bike: Bike): void {
+
+    this.bikeService.createBike(bike)
+      .then(bike => {
+        this.bikes.push(bike);
+        this.selectedBike = null;
+      });
+  }
+
+  deleteBike(bike: Bike): void {
+    this.bikeService
+      .deleteBike(bike)
+      .then(() => {
+        this.bikes = this.bikes.filter(h => h !== bike);
+        if (this.selectedBike === bike) { this.selectedBike = null; }
+      });
   }
 
   showInfo(bike: Bike): void {

@@ -1,4 +1,22 @@
 <h2>Bikes</h2>
-<md-list>
-  <md-list-item *ngFor="let bike of bikes" (click)="showInfo(bike)">{{bike.model}}</md-list-item>
-</md-list>
+
+<form>
+  <md-input-container style="width:30%">
+    <input mdInput [(ngModel)]="newBike.model" placeholder="Model" name="model">
+  </md-input-container>
+  <md-input-container style="width:30%">
+    <input mdInput [(ngModel)]="newBike.manufacturer" placeholder="Manufacturer" name="manufacturer">
+  </md-input-container>
+  <button md-raised-button (click)="createBike(newBike)">Create Bike</button>
+
+  <md-list>
+    <md-list-item *ngFor="let bike of bikes" (click)="showInfo(bike)">
+      <span>
+          {{bike.model}}
+      </span>
+      <span>
+        <button md-raised-button (click)="deleteBike(bike); $event.stopPropagation()">Delete</button>
+      </span>
+    </md-list-item>
+  </md-list>
+</form>
