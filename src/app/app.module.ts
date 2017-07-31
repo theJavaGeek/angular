@@ -10,6 +10,7 @@ import { BikeService } from './bike.service';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MaterialModule, MdList, MdListItem } from '@angular/material'
+import { DataListModule }  from 'primeng/primeng';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { MaterialModule, MdList, MdListItem } from '@angular/material'
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    DataListModule,
     MaterialModule.forRoot()
   ],
   providers: [BikeService],
