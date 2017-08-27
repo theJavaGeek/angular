@@ -1,15 +1,27 @@
 <h2>Bikes</h2>
 
-  <md-input-container style="width:30%">
-    <input mdInput [(ngModel)]="newBike.model" placeholder="Model" name="model">
-  </md-input-container><br>
-  <md-input-container style="width:30%">
-    <input mdInput [(ngModel)]="newBike.manufacturer" placeholder="Manufacturer" name="manufacturer">
-  </md-input-container><br>
-  <button md-raised-button (click)="createBike(newBike)">Create Bike</button>
+<div>
+    <span><input type="text" pInputText [(ngModel)]="newBike.model"/></span>
+</div>
+<div>
+    <span><input type="text" pInputText [(ngModel)]="newBike.manufacturer"/></span>
+</div>
+<div>
+    <span><button pButton type="button" (click)="createBike(newBike)" label="Create Bike"></button> </span>
+</div>
 
-  <md-list>
-    <md-list-item *ngFor="let bike of bikes" (click)="showInfo(bike)">
-          {{bike.model}} <button md-raised-button (click)="deleteBike(bike); $event.stopPropagation()">Delete</button>
-    </md-list-item>
-  </md-list>
+<p-dataTable [value]="bikes">
+    <p-header>Bike Management</p-header>
+    <p-column field="model" header="model"></p-column>
+    <p-column field="manufacturer" header="Manufacturer"></p-column>
+    <p-column header = "Edit">
+        <ng-template let-bike="rowData" pTemplate="body">
+            <button type="button" pButton (click)="showInfo(bike)" icon="fa-edit"></button>
+        </ng-template>
+    </p-column>
+    <p-column header = "Delete">
+        <ng-template let-bike="rowData" pTemplate="body">
+            <button type="button" pButton (click)="deleteBike(bike)" icon="fa-remove"></button>
+        </ng-template>
+    </p-column>
+</p-dataTable>

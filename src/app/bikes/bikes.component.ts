@@ -27,7 +27,7 @@ export class BikesComponent implements OnInit {
 
     this.bikeService.createBike(bike)
       .then(bike => {
-        this.bikes.push(bike);
+        this.bikeService.getBikes().then(bikes => this.bikes = bikes);
         this.selectedBike = null;
       });
   }

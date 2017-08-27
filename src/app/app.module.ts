@@ -11,7 +11,7 @@ import { BikeService } from './bike.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { MaterialModule, MdList, MdListItem } from '@angular/material'
+import {DataTableModule, ButtonModule} from 'primeng/primeng';
 
 
 @NgModule({
@@ -19,8 +19,9 @@ import { MaterialModule, MdList, MdListItem } from '@angular/material'
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule.forRoot(),
     AppRoutingModule,
+    DataTableModule,
+    ButtonModule,
     BrowserAnimationsModule
   ],
   declarations: [
